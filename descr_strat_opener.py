@@ -51,13 +51,11 @@ def main(args):
 	infile.close()
 
 	sections = split_into_sections(filetext)
-	
-
 
 	# write to file
-	# outfile = open(DESCR_STRAT_NEW, "w")
-	# outfile.write(sections_to_string(sections))
-	# outfile.close()
+	outfile = open(DESCR_STRAT_NEW, "w")
+	outfile.write(sections_to_string(sections))
+	outfile.close()
 
 main(sys.argv)
 

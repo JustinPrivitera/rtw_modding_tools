@@ -190,23 +190,18 @@ class factions_section(section):
 							self.factions[j].settlements[l].buildings.append(building(info[1], info[2]))
 							k += 4
 						i = i + k + 1
-						l += 1
+					l += 1
 				else:
 					print("error reading settlements in " + self.factions[j].name, file = sys.stdout)
 					break
-			# for p in range(0, len(self.factions[j].settlements)):
-			# 	print(self.factions[j].settlements[p].region)
-			# print()
 			l = 0 # character incrementor
 			while stringToken(self.text[i], "\t")[0] != "character_record": # read characters
-				# print("working on " + self.factions[j].name, file = sys.stdout)
 				first = stringToken(self.text[i], "\t,")
-				# print(first, file = sys.stdout)
 				if first[0] == "character":
 					if stringToken(first[1], " ")[0] == "sub_faction":
 						self.factions[j].characters.append(general())
-						self.factions[j].characters[l].name = first[2] # don't these have to be fixed???
-						self.factions[j].characters[l].age = stringToken(first[4], " ")[1]
+						self.factions[j].characters[l].name = stringToken(first[2], " ")[0] # don't these have to be fixed???
+						self.factions[j].characters[l].age = int(stringToken(first[4], " ")[1])
 						self.factions[j].characters[l].sub_faction = stringToken(first[1], " ")[1]
 						self.factions[j].characters[l].char_type = stringToken(first[3], " ")[0]
 						self.factions[j].characters[l].pos = point(stringToken(first[6], " ")[1], stringToken(first[7], " ")[1], self.factions[j].characters[l].char_type, self.factions[j].characters[l].name)
@@ -217,8 +212,8 @@ class factions_section(section):
 							unit_line = stringToken(self.text[i + k], "\t")
 							while unit_line[0] == "unit":
 								unit_stats = stringToken(unit_line[2], " ")
-								self.factions[j].characters[l].army.append(strat_map_unit(unit_line[1], unit_stats[1], unit_stats[3], unit_stats[5]))
-								if len(self.text) < i + k:
+								self.factions[j].characters[l].army.append(strat_map_unit(unit_line[1], int(unit_stats[1]), int(unit_stats[3]), int(unit_stats[5])))
+								if len(self.text) > i + k + 1:
 									k += 1
 								else:
 									return # we arrived at EOF so it's time to stop reading things
@@ -230,11 +225,11 @@ class factions_section(section):
 						self.factions[j].characters[l].name = first[1]
 						if first[3] == " heir" or first[3] == " leader":
 							self.factions[j].characters[l].rank = first[3].lstrip()
-							self.factions[j].characters[l].age = stringToken(first[4], " ")[1]
+							self.factions[j].characters[l].age = int(stringToken(first[4], " ")[1])
 							self.factions[j].characters[l].pos = point(stringToken(first[6], " ")[1], stringToken(first[7], " ")[1], self.factions[j].characters[l].char_type, self.factions[j].characters[l].name)
 						else:
 							self.factions[j].characters[l].rank = ""
-							self.factions[j].characters[l].age = stringToken(first[3], " ")[1]
+							self.factions[j].characters[l].age = int(stringToken(first[3], " ")[1])
 							self.factions[j].characters[l].pos = point(stringToken(first[5], " ")[1], stringToken(first[6], " ")[1], self.factions[j].characters[l].char_type, self.factions[j].characters[l].name)
 						self.factions[j].characters[l].wife = "" # to be filled in later
 						self.factions[j].characters[l].children = [] # to be filled in later
@@ -248,7 +243,7 @@ class factions_section(section):
 						if second[0] == "traits":
 							k = 1 # traits incrementor
 							while k < len(second) - 1:
-								self.factions[j].characters[l].traits.append(trait(second[k], second[k + 1]))
+								self.factions[j].characters[l].traits.append(trait(second[k], int(second[k + 1])))
 								k += 2
 							i += 1
 							third = stringToken(self.text[i], " ,")
@@ -265,7 +260,7 @@ class factions_section(section):
 							unit_line = stringToken(self.text[i + k], "\t")
 							while unit_line[0] == "unit":
 								unit_stats = stringToken(unit_line[2], " ")
-								self.factions[j].characters[l].army.append(strat_map_unit(unit_line[1], unit_stats[1], unit_stats[3], unit_stats[5]))
+								self.factions[j].characters[l].army.append(strat_map_unit(unit_line[1], int(unit_stats[1]), int(unit_stats[3]), int(unit_stats[5])))
 								k += 1
 								unit_line = stringToken(self.text[i + k], "\t")
 							i += k
@@ -273,7 +268,7 @@ class factions_section(section):
 					elif first[2] == " admiral" or first[2] == " general":
 						self.factions[j].characters.append(general())
 						self.factions[j].characters[l].name = first[1]
-						self.factions[j].characters[l].age = stringToken(first[3], " ")[1]
+						self.factions[j].characters[l].age = int(stringToken(first[3], " ")[1])
 						self.factions[j].characters[l].sub_faction = ""
 						self.factions[j].characters[l].char_type = stringToken(first[2], " ")[0]
 						self.factions[j].characters[l].pos = point(stringToken(first[5], " ")[1], stringToken(first[6], " ")[1], self.factions[j].characters[l].char_type, self.factions[j].characters[l].name)
@@ -284,7 +279,7 @@ class factions_section(section):
 						if second[0] == "traits":
 							k = 1 # traits incrementor
 							while k < len(second) - 1:
-								self.factions[j].characters[l].traits.append(trait(second[k], second[k + 1]))
+								self.factions[j].characters[l].traits.append(trait(second[k], int(second[k + 1])))
 								k += 2
 							i += 1
 							third = stringToken(self.text[i], " ,")
@@ -301,7 +296,7 @@ class factions_section(section):
 							unit_line = stringToken(self.text[i + k], "\t")
 							while unit_line[0] == "unit":
 								unit_stats = stringToken(unit_line[2], " ")
-								self.factions[j].characters[l].army.append(strat_map_unit(unit_line[1], unit_stats[1], unit_stats[3], unit_stats[5]))
+								self.factions[j].characters[l].army.append(strat_map_unit(unit_line[1], int(unit_stats[1]), int(unit_stats[3]), int(unit_stats[5])))
 								k += 1
 								unit_line = stringToken(self.text[i + k], "\t")
 							i += k
@@ -309,8 +304,8 @@ class factions_section(section):
 					elif first[2] == " diplomat" or first[2] == " spy":
 						self.factions[j].characters.append(strat_map_character())
 						self.factions[j].characters[l].name = first[1]
-						self.factions[j].characters[l].age = stringToken(first[3], " ")[1]
-						self.factions[j].characters[l].sub_faction = ""
+						self.factions[j].characters[l].age = int(stringToken(first[3], " ")[1])
+						# self.factions[j].characters[l].sub_faction = ""
 						self.factions[j].characters[l].char_type = stringToken(first[2], " ")[0]
 						self.factions[j].characters[l].pos = point(stringToken(first[5], " ")[1], stringToken(first[6], " ")[1], self.factions[j].characters[l].char_type, self.factions[j].characters[l].name)
 						i += 1
@@ -319,7 +314,7 @@ class factions_section(section):
 						if second[0] == "traits":
 							k = 1 # traits incrementor
 							while k < len(second) - 1:
-								self.factions[j].characters[l].traits.append(trait(second[k], second[k + 1]))
+								self.factions[j].characters[l].traits.append(trait(second[k], int(second[k + 1])))
 								k += 2
 							i += 1
 							third = stringToken(self.text[i], " ,")
@@ -339,19 +334,19 @@ class factions_section(section):
 				if line[0] == "character_record":
 					self.factions[j].characters.append(non_strat_map_character())
 					self.factions[j].characters[l].name = line[1]
-					self.factions[j].characters[l].gender = line[2]
+					self.factions[j].characters[l].gender = line[3]
 					# skip traits b/c all are 0
-					self.factions[j].characters[l].age = int(stringToken(line[7], " ")[1])
+					self.factions[j].characters[l].age = int(stringToken(line[8], " ")[1])
 					i += 1
 					l += 1
 				else:
 					print("error reading characters_record in " + self.factions[j].name, file = sys.stdout)
 			while stringToken(self.text[i], "\t")[0] == "relative ": # read relatives
-				line = stringToken(self.text[i], "\t ,")
+				line = stringToken(self.text[i], "\t,")
 				for n in range(0, len(self.factions[j].characters)):
 					if line[1] == self.factions[j].characters[n].name:
-						self.factions[j].characters[n].wife = line[2]
-						q = 3
+						self.factions[j].characters[n].wife = line[3]
+						q = 4
 						while line[q] != "end":
 							self.factions[j].characters[n].children.append(line[q])
 							q += 1
@@ -359,6 +354,10 @@ class factions_section(section):
 				i += 1
 			j += 1
 
-
 	def to_string(self):
-		pass
+		outstr = ""
+		outstr += SECTION_DELIMITER
+		outstr += "; >>>> start of factions section <<<<\r\n\r\n"
+		for i in range(0, len(self.factions)):
+			outstr += self.factions[i].to_string()
+		return outstr
