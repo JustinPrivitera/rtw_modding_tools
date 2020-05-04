@@ -361,3 +361,42 @@ class factions_section(section):
 		for i in range(0, len(self.factions)):
 			outstr += self.factions[i].to_string()
 		return outstr
+
+# descr_strat has an error where one line of core_attitudes and some of the faction_relationships have an added space
+# also, shorter faction names are accompanied by an extra tab for readability, which messes with my parser
+# also, all the faction relationship entries have an extra tab
+# I've just changed descr_strat so that there are always two tabs separating those entries, I'll test eventually and see if it works
+class diplomacy_section(section):
+	def __init__(self, title, text):
+		section.__init__(self, title, text)
+		self.key = []
+		self.core_attitudes = []
+		self.faction_relationships = []
+		self.populate()
+
+	def populate(self):
+		self.trim_text()
+		for i in range(2, len(self.text)):
+			line = stringToken(self.text[i], "\t")
+			if self.text[i][0] == ";":
+				self.key.append(self.text[i])
+			elif line[0] == "core_attitudes":
+				self.core_attitudes.append(diplomacy_entry(line[0], stringToken(line[1], ",")[0], int(line[2]), stringToken(line[3], ", ")))
+			elif line[0] == "faction_relationships":
+				self.faction_relationships.append(diplomacy_entry(line[0], stringToken(line[1], ",")[0], int(line[2]), stringToken(line[3], ", ")))
+			else:
+				print("error parsing diplomacy section", file = sys.stdout)
+
+	def to_string(self):
+		outstr = ""
+		outstr += SECTION_DELIMITER
+		outstr += "; >>>> start of diplomacy section <<<<\r\n"
+		for i in range(0, len(self.key)):
+			outstr += self.key[i] + "\r\n"
+		outstr += "\r\n"
+		for i in range(0, len(self.core_attitudes)):
+			outstr += self.core_attitudes[i].to_string()
+		outstr += "\r\n"
+		for i in range(0, len(self.faction_relationships)):
+			outstr += self.faction_relationships[i].to_string()
+		return outstr

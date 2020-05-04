@@ -1,3 +1,5 @@
+# describes objects of the descr_strat.txt file
+
 class landmark:
 	def __init__(self, name, x, y):
 		self.name = name
@@ -207,6 +209,21 @@ class strat_map_unit:
 
 	def to_string(self):
 		return "unit\t\t" + self.name + "\t\t\t\t" + "exp " + str(self.exp) + " armour " + str(self.armour) + " weapon_lvl " + str(self.weapon_lvl) + "\r\n"
+
+class diplomacy_entry: # represents core_attitudes and faction_relationships
+	def __init__(self, d_type, faction, stance, targets):
+		self.d_type = d_type
+		self.faction = faction
+		self.stance = stance # int
+		self.targets = targets
+
+	def to_string(self):
+		outstr = self.d_type + "\t" + self.faction + ",\t\t" + str(self.stance) + "\t\t"
+		for i in range(0, len(self.targets) - 1):
+			outstr += self.targets[i] + ", "
+		outstr += self.targets[len(self.targets) - 1]
+		outstr += "\r\n"
+		return outstr
 
 class point:
 	def __init__(self, x, y, obj, add_info):

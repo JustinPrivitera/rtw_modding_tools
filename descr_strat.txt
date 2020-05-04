@@ -4489,15 +4489,15 @@ unit		carthaginian city militia				exp 1 armour 0 weapon_lvl 0
 ;DS_HOSTILE			= 400
 ;DS_AT_WAR			= 600
 
-core_attitudes	romans_julii,	-10		romans_brutii, romans_scipii, romans_senate
-core_attitudes	romans_julii,	400		carthage
-core_attitudes	romans_julii,	600		slave
-core_attitudes	romans_brutii,	-10		romans_julii, romans_scipii, romans_senate
-core_attitudes	romans_brutii,	600		slave
-core_attitudes	romans_scipii,	-10		romans_julii, romans_brutii, romans_senate
-core_attitudes	romans_scipii,	600		slave
-core_attitudes	romans_senate, 	-10		romans_julii, romans_brutii, romans_scipii
-core_attitudes	romans_senate,	600		slave
+core_attitudes	romans_julii,		-10		romans_brutii, romans_scipii, romans_senate
+core_attitudes	romans_julii,		400		carthage
+core_attitudes	romans_julii,		600		slave
+core_attitudes	romans_brutii,		-10		romans_julii, romans_scipii, romans_senate
+core_attitudes	romans_brutii,		600		slave
+core_attitudes	romans_scipii,		-10		romans_julii, romans_brutii, romans_senate
+core_attitudes	romans_scipii,		600		slave
+core_attitudes	romans_senate,		-10		romans_julii, romans_brutii, romans_scipii
+core_attitudes	romans_senate,		600		slave
 core_attitudes	macedon,		90		romans_brutii
 core_attitudes	macedon,		600		slave
 core_attitudes	egypt,		410		numidia
@@ -4525,8 +4525,8 @@ core_attitudes	armenia,		600		slave
 core_attitudes	dacia,		90		romans_julii
 core_attitudes	dacia,		410		germans
 core_attitudes	dacia,		600		slave
-core_attitudes	greek_cities,	410		romans_brutii, romans_scipii
-core_attitudes	greek_cities,	600		slave
+core_attitudes	greek_cities,		410		romans_brutii, romans_scipii
+core_attitudes	greek_cities,		600		slave
 core_attitudes	numidia,		90		carthage
 core_attitudes	numidia,		600		slave
 core_attitudes	scythia,		600		slave
@@ -4538,10 +4538,10 @@ core_attitudes	thrace,		600		slave
 core_attitudes	slave,		600		romans_julii, romans_brutii, romans_scipii, romans_senate, macedon, egypt, seleucid, carthage, parthia, pontus, gauls, germans, britons, armenia, dacia, greek_cities, numidia, scythia, spain, thrace
 
 faction_relationships	romans_julii,		100		romans_brutii
-faction_relationships	romans_julii, 		100		romans_scipii
+faction_relationships	romans_julii,		100		romans_scipii
 faction_relationships	romans_julii,		100		romans_senate
-faction_relationships	romans_julii, 		600		slave
-faction_relationships	romans_brutii, 		100		romans_julii
+faction_relationships	romans_julii,		600		slave
+faction_relationships	romans_brutii,		100		romans_julii
 faction_relationships	romans_brutii,		100		romans_scipii
 faction_relationships	romans_brutii,		100		romans_senate
 faction_relationships	romans_brutii,		600		slave
@@ -4549,23 +4549,23 @@ faction_relationships	romans_scipii,		100		romans_julii
 faction_relationships	romans_scipii,		100		romans_brutii
 faction_relationships	romans_scipii,		100		romans_senate
 faction_relationships	romans_scipii,		600		slave
-faction_relationships	macedon,			600		slave
-faction_relationships	egypt,			600		slave
-faction_relationships	seleucid,			600		slave
-faction_relationships	carthage,			600		slave
-faction_relationships	parthia,			600		slave
-faction_relationships	pontus,			600		slave
-faction_relationships	gauls,			600		slave
-faction_relationships	germans,			600		slave
-faction_relationships	britons,			600		slave
-faction_relationships	armenia,			600		slave
-faction_relationships	dacia,			600		slave
+faction_relationships	macedon,		600		slave
+faction_relationships	egypt,		600		slave
+faction_relationships	seleucid,		600		slave
+faction_relationships	carthage,		600		slave
+faction_relationships	parthia,		600		slave
+faction_relationships	pontus,		600		slave
+faction_relationships	gauls,		600		slave
+faction_relationships	germans,		600		slave
+faction_relationships	britons,		600		slave
+faction_relationships	armenia,		600		slave
+faction_relationships	dacia,		600		slave
 faction_relationships	greek_cities,		600		slave
-faction_relationships	numidia,			600		slave
-faction_relationships	scythia,			600		slave
-faction_relationships	spain,			600		slave
-faction_relationships	thrace,			600		slave
-faction_relationships	slave,			600		romans_julii, romans_brutii, romans_scipii, romans_senate, macedon, egypt, seleucid, carthage, parthia, pontus, gauls, germans, britons, armenia, dacia, greek_cities, numidia, scythia, spain, thrace
+faction_relationships	numidia,		600		slave
+faction_relationships	scythia,		600		slave
+faction_relationships	spain,		600		slave
+faction_relationships	thrace,		600		slave
+faction_relationships	slave,		600		romans_julii, romans_brutii, romans_scipii, romans_senate, macedon, egypt, seleucid, carthage, parthia, pontus, gauls, germans, britons, armenia, dacia, greek_cities, numidia, scythia, spain, thrace
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; >>>> start of regions section <<<<
 

@@ -34,7 +34,7 @@ def convert_text_to_section_object(text_list):
 	sections.append(section("events", text_list[4]))
 	sections.append(factions_section("factions", text_list[5]))
 	sections.append(section("diplomacy0", text_list[6]))
-	sections.append(section("diplomacy", text_list[7]))
+	sections.append(diplomacy_section("diplomacy", text_list[7]))
 	sections.append(section("regions", text_list[8]))
 	return sections
 
@@ -44,7 +44,7 @@ def sections_to_string(sections):
 		outstr += sections[i].to_string()
 	return outstr
 
-def main(args):
+def main():
 	# read file and parse
 	infile = open(DESCR_STRAT_LOCATION, "r")
 	filetext = stringToken(infile.read(), "\n", 'f')
@@ -57,13 +57,13 @@ def main(args):
 	outfile.write(sections_to_string(sections))
 	outfile.close()
 
-main(sys.argv)
+main()
 
 # [x] next task is to write this to file successfully and verify that no changes have been made
 # the task after that is to parse each section into smaller and smaller data structures, and build a framework for all of that to be automated
 # maybe make a parent object and have each section inherit from it, so they all share a common toString method? - yes
 
-# continue reading information into objects, I left off in the middle of reading factions - in the middle of reading characters
+# continue reading information into objects, I left off on the diplomacy section
 
 # make a script that gives every city to rebels and gets rid of every faction as a kind of blank canvas - must add in invisible cities
 # probably make a comprehensive list of everything I want to accomplish with my modifications and use that approach to decide how the mod tools will work
