@@ -25,5 +25,13 @@ other super useful guide: https://forums.totalwar.org/vb/archive/index.php/t-639
 		- Data\world\maps\campaign\imperial_campaign\descr_win_conditions.txt
 - tool that makes all factions playable
 - tool that formats descr_strat parser so it ignores spaces in the diplomacy section, and perhaps does the tabs correctly
+- tool that makes backups, maybe an undo command, a help command
+- perhaps instead of hard coding each page, just make a page object that can display everything correctly
+	- it could get terminal length and width and display that way, or it could just take up a fixed amount of space and write over itself to move to a new page
+	- make a tree of pages
+	- also there could be options to resize a page
+		- this could be in "help"
+- a tool that backs up everything that's been changed
+- window where left side is where you write commands and interact and right side s where you can see the data you're working with
 - more tools -->
 
