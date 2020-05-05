@@ -145,6 +145,7 @@ class factions_section(section):
 		section.__init__(self, title, text)
 		self.factions = []
 		self.populate()
+		# add post processing so a faction can determine if it is a superfaction and maybe for coordinates of each city?
 
 	def populate(self):
 		self.trim_text()
