@@ -44,20 +44,18 @@ def sections_to_string(sections):
 		outstr += sections[i].to_string()
 	return outstr
 
-def main():
-	# read file and parse
+def parse_descr_strat():
 	infile = open(DESCR_STRAT_LOCATION, "r")
 	filetext = stringToken(infile.read(), "\n", 'f')
 	infile.close()
+	return split_into_sections(filetext)
 
-	sections = split_into_sections(filetext)
-
-	# write to file
+def write_changes(sections):
 	outfile = open(DESCR_STRAT_NEW, "w")
 	outfile.write(sections_to_string(sections))
 	outfile.close()
 
-main()
+# write_changes(parse_descr_strat())
 
 # [x] next task is to write this to file successfully and verify that no changes have been made
 # the task after that is to parse each section into smaller and smaller data structures, and build a framework for all of that to be automated
