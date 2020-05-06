@@ -44,19 +44,6 @@ def sections_to_string(sections):
 		outstr += sections[i].to_string()
 	return outstr
 
-def display_current_faction_playability(sections):
-	print("Displaying Current Faction Playability...")
-	print("Playable:")
-	for i in range(0, len(sections[0].playable)):
-		print("\t" + sections[0].playable[i])
-	print("Unlockable:")
-	for i in range(0, len(sections[0].unlockable)):
-		print("\t" + sections[0].unlockable[i])
-	print("Nonplayable:")
-	for i in range(0, len(sections[0].nonplayable)):
-		print("\t" + sections[0].nonplayable[i])
-	print()
-
 def display_current_superfaction_relationships(factions):
 	print("Displaying Current Superfaction Relationships...")
 	for i in range(0, len(factions)):
