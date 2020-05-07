@@ -5,7 +5,11 @@ current project (2020) to make mod tools for rtw
 super useful guide: https://www.twcenter.net/forums/showthread.php?13660-Descr_Strat-tutorial
 other super useful guide: https://forums.totalwar.org/vb/archive/index.php/t-63904.html
 
-<!-- - tool that allows me to touch superfaction relationships
+./run.py
+
+<!-- 
+Make these tools!
+- tool that allows me to touch superfaction relationships
 - tool that resets the map (julii have rome and all other regions are slave)
 - tool that renames factions
 	- by touching these files:
