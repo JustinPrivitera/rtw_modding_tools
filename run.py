@@ -6,7 +6,7 @@ from descr_strat_opener import *
 
 def main():
 	print("---------------------------------------")
-	print("Welcome to Arkantos v0.042, a set of modding tools for Rome Total War.\nThese mod tools were developed by Justin Privitera.\n")
+	print("Welcome to Arkantos v0.043, a set of modding tools for Rome Total War.\nThese mod tools were developed by Justin Privitera.\n")
 	read_data()
 	instantiate_pages()
 	curr_page = config.MAIN_MENU
