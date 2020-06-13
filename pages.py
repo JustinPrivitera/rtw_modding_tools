@@ -29,7 +29,7 @@ def instantiate_pages():
 	#######################################################
 
 	name = "FACTION PLAYABILITY"
-	info = "On this page you can edit faction playability.\n"
+	info = "On this page you can view and edit faction playability.\n"
 	actn = run_faction_playability
 	args = []
 	config.PAGES.append(page(name, info, actn, args))
@@ -77,4 +77,35 @@ def instantiate_pages():
 	config.PAGES.append(page(name, info, actn, args))
 
 	#######################################################
+
+	name = "SUPERFACTION RELATIONSHIPS"
+	info = "On this page you can view and edit superfaction relationships.\n"
+	actn = run_superfaction_relationships
+	args = []
+	config.PAGES.append(page(name, info, actn, args))
+
+	name = "CURRENT SUPERFACTION RELATIONSHIPS"
+	info = "Displaying current superfaction relationships.\n"
+	actn = run_current_sr
+	args = []
+	config.PAGES.append(page(name, info, actn, args))
+
+	name = "ADD A SUPERFACTION RELATIONSHIP"
+	info = "On this page you can add a superfaction relationship.\n"
+	actn = add_sr
+	args = []
+	config.PAGES.append(page(name, info, actn, args))
+
+	name = "REMOVE A SUPERFACTION RELATIONSHIP"
+	info = "On this page you can remove a superfaction relationship.\n"
+	actn = rm_sr
+	args = []
+	config.PAGES.append(page(name, info, actn, args))
+
+	name = "REMOVE ALL SUPERFACTION RELATIONSHIP"
+	info = "On this page you can remove a superfaction relationship.\n"
+	actn = rm_all_sr
+	args = []
+	config.PAGES.append(page(name, info, actn, args))
+
 	# more pages

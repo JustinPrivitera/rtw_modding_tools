@@ -123,7 +123,7 @@ def format_playability_list(alist, action):
 def selection2():
 	# TODO
 	# - prevent factions from being in nested superfaction relationships? No grandchildren allowed
-	# - MAYBE fix indices when promted and somehow convert to true indices
+	# - MAYBE fix indices when prompted and somehow convert to true indices
 	sections = parse_descr_strat()
 	print("---------------------------------------")
 	display_current_superfaction_relationships(sections[5].factions)

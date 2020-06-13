@@ -363,6 +363,14 @@ class factions_section(section):
 			outstr += self.factions[i].to_string()
 		return outstr
 
+		# returns the total number of superfaction relationships
+	def get_num_sr(self):
+		count = 0
+		for i in range(0, len(self.factions)):
+			if self.factions[i].superfaction != "":
+				count += 1
+		return count
+
 # descr_strat has an error where one line of core_attitudes and some of the faction_relationships have an added space
 # also, shorter faction names are accompanied by an extra tab for readability, which messes with my parser
 # also, all the faction relationship entries have an extra tab
